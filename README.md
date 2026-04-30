@@ -20,4 +20,6 @@ Para esta parte, donde estamos definiendo las constantes del entorno, las variab
 se esta definiendo la estetica y la animacion que tendra el personaje 
 ### Estetica del entorno
 En este bloque, donde defines el renderisado visual de los obstaculos(tuberias) con sus detalles y texxturas
-
+### Interfas usuario
+Esta funcion esta encargada de la interfas de usuario (UI)
+ 
