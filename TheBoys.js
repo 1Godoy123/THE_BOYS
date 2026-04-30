@@ -39,3 +39,67 @@ function spawnPipe() {
         bottomHeight: canvas.height - pipeHeight - pipeGap
     });
 }
+
+
+function drawBird() {
+
+    frameCount++;
+    if (frameCount % 8 === 0) {
+        bird.wingAngle += 0.4 * bird.wingDirection;
+        if (Math.abs(bird.wingAngle) > 0.6) {
+            bird.wingDirection *= -1;
+        }
+    }
+
+    ctx.save();
+    ctx.translate(bird.x, bird.y);
+    ctx.rotate(bird.velocity * 0.08);   
+
+    const bw = bird.width;
+    const bh = bird.height;
+    const block = 8; 
+
+    ctx.fillStyle = '#F4D03F';     
+    ctx.fillRect(-bw/2, -bh/2, bw, bh);
+
+    
+    ctx.strokeStyle = '#B8860B';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(-bw/2 + 2, -bh/2 + 2, bw - 4, bh - 4);
+
+
+    ctx.fillStyle = '#1C2526';
+    ctx.fillRect(bw/4 - 4, -bh/4 - 4, 10, 10);     
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(bw/4 - 2, -bh/4 - 2, 4, 4);       
+
+    ctx.fillStyle = '#E67E22';
+    ctx.beginPath();
+    ctx.moveTo(bw/2, -2);
+    ctx.lineTo(bw/2 + 14, 0);
+    ctx.lineTo(bw/2, 6);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.strokeStyle = '#D35400';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.fillStyle = '#E67E22';        
+    ctx.save();
+    ctx.rotate(bird.wingAngle * 0.7);
+
+    ctx.fillRect(-bw/2 - 6, -8, 18, 16);
+    
+    ctx.fillStyle = '#D35400';
+    ctx.fillRect(-bw/2 - 2, -6, 10, 4);
+    ctx.fillRect(-bw/2 - 2, 2, 12, 4);
+
+    ctx.restore();
+
+    ctx.fillStyle = '#F1C40F';
+    ctx.fillRect(-bw/2 + 6, -bh/2 + 6, 8, 8);   
+
+    ctx.restore();
+}
