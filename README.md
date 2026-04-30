@@ -12,3 +12,6 @@ El score muestra los puntos que va acumulando el usuario en una partida. Se usar
 El botón de reinicio ha sido implementado para que el usuario pueda volver a jugar o reiniciar una partida. Se usó la etiquta "button" y se le agregó un id para el diseño y programación.
 ### Instrucciones de juego
 Es un apartado sencillo, pues se trata de un pequeño parrafo que explica y da a conocer pequeñas instrucciones. Se usaron las etiquetas     "p, div".
+## JAVASCRIPT
+se añadio las fisicas del pajaro  y como se usara y sus propiedades que tendra como la gravedad
+
