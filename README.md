@@ -14,4 +14,6 @@ El botón de reinicio ha sido implementado para que el usuario pueda volver a ju
 Es un apartado sencillo, pues se trata de un pequeño parrafo que explica y da a conocer pequeñas instrucciones. Se usaron las etiquetas     "p, div".
 ## JAVASCRIPT
 se añadio las fisicas del pajaro  y como se usara y sus propiedades que tendra como la gravedad
+### Entorno de la app
+Para esta parte, donde estamos definiendo las constantes del entorno, las variables de estados y la logica de generacion de obstaculos
 
