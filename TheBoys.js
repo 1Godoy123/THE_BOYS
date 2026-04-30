@@ -103,3 +103,37 @@ function drawBird() {
 
     ctx.restore();
 }
+
+
+function drawPipes() {
+    pipes.forEach(pipe => {
+        const pw = pipeWidth;
+        
+        ctx.fillStyle = '#2E8B57';
+        ctx.fillRect(pipe.x, 0, pw, pipe.topHeight);
+        
+        ctx.strokeStyle = '#1E5F3A';
+        ctx.lineWidth = 4;
+        for (let y = 20; y < pipe.topHeight; y += 28) {
+            ctx.beginPath();
+            ctx.moveTo(pipe.x, y);
+            ctx.lineTo(pipe.x + pw, y);
+            ctx.stroke();
+        }
+
+        ctx.fillStyle = '#2E8B57';
+        ctx.fillRect(pipe.x, canvas.height - pipe.bottomHeight, pw, pipe.bottomHeight);
+        
+        for (let y = canvas.height - pipe.bottomHeight; y < canvas.height - 20; y += 28) {
+            ctx.beginPath();
+            ctx.moveTo(pipe.x, y);
+            ctx.lineTo(pipe.x + pw, y);
+            ctx.stroke();
+        }
+
+        ctx.fillStyle = '#27AE60';
+        ctx.fillRect(pipe.x - 4, pipe.topHeight - 24, pw + 8, 28);   // cap top
+        ctx.fillRect(pipe.x - 4, canvas.height - pipe.bottomHeight, pw + 8, 28); // cap bottom
+    });
+}
+

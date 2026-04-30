@@ -18,4 +18,6 @@ se añadio las fisicas del pajaro  y como se usara y sus propiedades que tendra 
 Para esta parte, donde estamos definiendo las constantes del entorno, las variables de estados y la logica de generacion de obstaculos
 ### Estetica del personaje
 se esta definiendo la estetica y la animacion que tendra el personaje 
+### Estetica del entorno
+En este bloque, donde defines el renderisado visual de los obstaculos(tuberias) con sus detalles y texxturas
 
