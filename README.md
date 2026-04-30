@@ -1,2 +1,14 @@
 # THE_BOYS
 Trabajo grupal para ingresar a la SCECI
+El presente README tiene la finalidad de detallar y explicar el proceso de elaboración del trabajo grupal. Comom tal, el proyecto se divide en tres partes fundamentales: HTML, CSS y JavaScript.
+El cómo se realizó cada parte y para qué sirve sera definido a continuación, desde la estructura en HTML, el diseño en CSS y las funcionalidades en JavaScript. 
+## HTML
+HTML se usó principalmente en la creación de la estructura y despliegue de la página web. El contenido ha sido dividido en tres partes: Encabezado principal, sección de puntaje (score), botón de reinicio e instrucciones de juego.
+### Encabezado Principal
+Para el encabezado principal se usó la etiqueta "<h1>". Consiste en un sencillo texto que se muestra al inicio del programa.
+### Sección de Puntaje
+El score muestra los puntos que va acumulando el usuario en una partida. Se usaron las etiquetas "<div>, <span>" principalmente para denotar la sección y para el posterior diseño en CSS.
+### Botón de Reinicio
+El botón de reinicio ha sido implementado para que el usuario pueda volver a jugar o reiniciar una partida. Se usó la etiquta "<button>" y se le agregó un id para el diseño y programación.
+### Instrucciones de juego
+Es un apartado sencillo, pues se trata de un pequeño parrafo que explica y da a conocer pequeñas instrucciones. Se usaron las etiquetas     "<p>, <div>".
