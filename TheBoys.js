@@ -158,3 +158,6 @@ function checkCollision(){
     return false;
 }
 
+function gameLoop() {
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
