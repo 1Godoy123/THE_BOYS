@@ -24,3 +24,5 @@ En este bloque, donde defines el renderisado visual de los obstaculos(tuberias) 
 Esta funcion esta encargada de la interfas de usuario (UI)
 ###Ciclo de Juego
 Se implementó la función "gameLoop" que actúa como el corazón del programa. Esta se encarga de limpiar el lienzo y redibujar cada elemento en cada cuadro para crear la ilusión de movimiento fluido.
+###Física del Personaje
+En este apartado se detalla cómo el ave reacciona a una gravedad simulada. Se programó para que caiga constantemente a menos que el usuario interactúe, logrando un movimiento parabólico realista.
