@@ -187,4 +187,11 @@ function gameLoop() {
     drawPipes();
     drawBird();
     drawScore();
+    if (checkCollision()) {
+        if (score > highScore) {
+            highScore = score;
+            localStorage.setItem('flappyHighScore', highScore);
+        }
+        gameOver = true;
+    }
 
