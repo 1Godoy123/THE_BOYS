@@ -22,7 +22,9 @@ se esta definiendo la estetica y la animacion que tendra el personaje
 En este bloque, donde defines el renderisado visual de los obstaculos(tuberias) con sus detalles y texxturas
 ### Interfas usuario
 Esta funcion esta encargada de la interfas de usuario (UI)
-###Ciclo de Juego
+### Ciclo de Juego
 Se implementó la función "gameLoop" que actúa como el corazón del programa. Esta se encarga de limpiar el lienzo y redibujar cada elemento en cada cuadro para crear la ilusión de movimiento fluido.
-###Física del Personaje
+### Física del Personaje
 En este apartado se detalla cómo el ave reacciona a una gravedad simulada. Se programó para que caiga constantemente a menos que el usuario interactúe, logrando un movimiento parabólico realista.
+### Generación de Tuberías
+Se definió una lógica para que las tuberías aparezcan de forma infinita y con alturas variables. Esto asegura que cada partida sea diferente y que el reto sea constante para el jugador.
