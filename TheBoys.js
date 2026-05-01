@@ -196,4 +196,19 @@ function gameLoop() {
     }
     requestAnimationFrame(gameLoop);
 }
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') {
+        if (gameOver) {
+            bird.y = canvas.height / 2;
+            bird.velocity = 0;
+            pipes.length = 0;
+            score = 0;
+            gameOver = false;
+            gameLoop();
+        } else {
+            bird.velocity = bird.jumpStrength;
+        }
+        e.preventDefault();
+    }
+});
 
