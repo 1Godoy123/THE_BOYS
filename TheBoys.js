@@ -176,4 +176,12 @@ function gameLoop() {
     if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
         spawnPipe();
     }
+    pipes.forEach((pipe, index) => {
+        pipe.x -= pipeSpeed;
+
+        if (pipe.x + pipeWidth < 0) {
+            pipes.splice(index, 1);
+            score++;
+        }
+    });
 
