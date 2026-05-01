@@ -184,4 +184,7 @@ function gameLoop() {
             score++;
         }
     });
+    drawPipes();
+    drawBird();
+    drawScore();
 
