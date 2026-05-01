@@ -161,3 +161,13 @@ function checkCollision(){
 function gameLoop() {
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    if (gameOver) {
+        ctx.fillStyle = 'rgba(0,0,0,0.7)';
+        ctx.fillRect(0, canvas.height/2 - 100, canvas.width, 200);
+        
+        ctx.fillStyle = 'white';
+        ctx.font = '30px Arial';
+        ctx.fillText('Game Over', canvas.width/2 - 80, canvas.height/2);
+        ctx.fillText(`Score: ${score}`, canvas.width/2 - 60, canvas.height/2 + 40);
+        return;
+    }
