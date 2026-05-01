@@ -171,3 +171,6 @@ function gameLoop() {
         ctx.fillText(`Score: ${score}`, canvas.width/2 - 60, canvas.height/2 + 40);
         return;
     }
+    bird.velocity += bird.gravity;
+    bird.y += bird.velocity;
+
