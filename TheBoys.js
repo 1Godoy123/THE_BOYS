@@ -143,3 +143,18 @@ function drawScore() {
     ctx.fillText(`Score: ${score}`, 10, 30);
     ctx.fillText(`High Score: ${highScore}`, 10, 60);
 }
+
+function checkCollision(){
+    if(bird.y-bird.height/2<=0 || bird.y + bird.height/2>=canvas.height){
+        return true;
+    }
+    for(let pipe of pipes){
+        if (bird.x + bird.width/2 > pipe.x && bird.x - bird.width/2 < pipe.x + pipeWidth) {
+            if (bird.y - bird.height/2 < pipe.topHeight || bird.y + bird.height/2 > canvas.height - pipe.bottomHeight) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
