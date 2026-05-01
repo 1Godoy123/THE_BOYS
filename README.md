@@ -28,3 +28,5 @@ Se implementó la función "gameLoop" que actúa como el corazón del programa. 
 En este apartado se detalla cómo el ave reacciona a una gravedad simulada. Se programó para que caiga constantemente a menos que el usuario interactúe, logrando un movimiento parabólico realista.
 ### Generación de Tuberías
 Se definió una lógica para que las tuberías aparezcan de forma infinita y con alturas variables. Esto asegura que cada partida sea diferente y que el reto sea constante para el jugador.
+### Almacenamiento de Puntaje
+Se integró el uso de la memoria del navegador para guardar el puntaje máximo. De esta forma, el usuario puede competir contra su propio récord incluso si cierra la página.
