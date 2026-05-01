@@ -173,4 +173,7 @@ function gameLoop() {
     }
     bird.velocity += bird.gravity;
     bird.y += bird.velocity;
+    if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
+        spawnPipe();
+    }
 
