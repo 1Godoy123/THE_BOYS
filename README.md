@@ -30,3 +30,5 @@ En este apartado se detalla cómo el ave reacciona a una gravedad simulada. Se p
 Se definió una lógica para que las tuberías aparezcan de forma infinita y con alturas variables. Esto asegura que cada partida sea diferente y que el reto sea constante para el jugador.
 ### Almacenamiento de Puntaje
 Se integró el uso de la memoria del navegador para guardar el puntaje máximo. De esta forma, el usuario puede competir contra su propio récord incluso si cierra la página.
+### Interacción y Estados
+Se explica el uso de la tecla espacio para controlar las acciones del juego. Además, se gestionan los estados de "jugando" y "terminado" para permitir un reinicio instantáneo tras perder.
