@@ -22,4 +22,6 @@ se esta definiendo la estetica y la animacion que tendra el personaje
 En este bloque, donde defines el renderisado visual de los obstaculos(tuberias) con sus detalles y texxturas
 ### Interfas usuario
 Esta funcion esta encargada de la interfas de usuario (UI)
+### Ciclo de Vida del Juego
+Se implementó la función "gameLoop" para gestionar el renderizado constante. Utiliza "requestAnimationFrame" para asegurar una tasa de refresco fluida y actualiza el estado del juego en cada cuadro.
  
