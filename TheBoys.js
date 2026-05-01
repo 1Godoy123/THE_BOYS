@@ -194,4 +194,6 @@ function gameLoop() {
         }
         gameOver = true;
     }
+    requestAnimationFrame(gameLoop);
+}
 
