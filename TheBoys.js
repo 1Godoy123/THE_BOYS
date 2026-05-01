@@ -212,3 +212,4 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+gameLoop();
