@@ -38,10 +38,13 @@ skyGradient.addColorStop(0,   '#87CEEB');
 skyGradient.addColorStop(0.7, '#87CEFA');
 skyGradient.addColorStop(1,   '#B0E0E6');
 
-// ── Difficulty UI ──────────────────────────────────────────────────────────
-const startScreen  = document.getElementById('startScreen');
-const diffButtons  = document.querySelectorAll('.diff-btn');
-const startBtn     = document.getElementById('startBtn');
+// ── UI references ──────────────────────────────────────────────────────────
+const startScreen    = document.getElementById('startScreen');
+const gameOverScreen = document.getElementById('gameOverScreen');
+const gameOverScore  = document.getElementById('gameOverScore');
+const gameOverHigh   = document.getElementById('gameOverHigh');
+const diffButtons    = document.querySelectorAll('.diff-btn');
+const startBtn       = document.getElementById('startBtn');
 
 diffButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -62,7 +65,8 @@ function startGame() {
 
     resetState();
     gameStarted = true;
-    startScreen.style.display = 'none';
+    startScreen.style.display    = 'none';
+    gameOverScreen.style.display = 'none';
 
     if (animFrameId) cancelAnimationFrame(animFrameId);
     gameLoop();
@@ -79,7 +83,18 @@ function resetState() {
     gameOver      = false;
 }
 
+function showGameOver() {
+    gameOverScore.textContent = `Score: ${score}`;
+    gameOverHigh.textContent  = `High Score: ${highScore}`;
+    gameOverScreen.style.display = 'flex';
+    /* re-trigger enter animation */
+    gameOverScreen.style.animation = 'none';
+    gameOverScreen.offsetHeight;
+    gameOverScreen.style.animation = '';
+}
+
 function restartAfterDeath() {
+    gameOverScreen.style.display = 'none';
     resetState();
     if (animFrameId) cancelAnimationFrame(animFrameId);
     gameLoop();
@@ -208,12 +223,7 @@ function gameLoop() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     if (gameOver) {
-        ctx.fillStyle = 'rgba(0,0,0,0.7)';
-        ctx.fillRect(0, canvas.height / 2 - 100, canvas.width, 200);
-        ctx.fillStyle = 'white';
-        ctx.font = '30px Arial';
-        ctx.fillText('Game Over', canvas.width / 2 - 80, canvas.height / 2);
-        ctx.fillText(`Score: ${score}`, canvas.width / 2 - 60, canvas.height / 2 + 40);
+        showGameOver();
         return;
     }
 
