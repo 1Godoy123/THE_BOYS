@@ -4,6 +4,29 @@
   padding: 0;
 }
 
+@keyframes bg-shift {
+  0%   { background-position: 50% 0%, 50% 100%; }
+  33%  { background-position: 30% 20%, 70% 80%; }
+  66%  { background-position: 70% 30%, 30% 70%; }
+  100% { background-position: 50% 0%, 50% 100%; }
+}
+
+@keyframes border-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 10px rgba(120, 40, 200, 0.3),
+      0 0 30px rgba(80, 20, 140, 0.15);
+    border-color: #3a1a5e;
+  }
+  50% {
+    box-shadow:
+      0 0 25px rgba(160, 60, 255, 0.8),
+      0 0 70px rgba(120, 40, 200, 0.45),
+      0 0 120px rgba(80, 20, 140, 0.2);
+    border-color: #9b30ff;
+  }
+}
+
 body {
   min-height: 100vh;
   display: flex;
@@ -11,10 +34,13 @@ body {
   align-items: center;
   background-color: #0a0a0f;
   background-image:
-    radial-gradient(ellipse at top, #1a0a2e 0%, #0a0a0f 60%),
-    radial-gradient(ellipse at bottom, #0d1a2e 0%, transparent 60%);
+    radial-gradient(ellipse at 50% 0%, #1a0a2e 0%, #0a0a0f 60%),
+    radial-gradient(ellipse at 50% 100%, #0d1a2e 0%, transparent 60%);
+  background-size: 200% 200%, 200% 200%;
+  background-position: 50% 0%, 50% 100%;
   font-family: 'Orbitron', sans-serif;
   overflow: hidden;
+  animation: bg-shift 14s ease-in-out infinite;
 }
 
 #gameCanvas {
@@ -23,9 +49,7 @@ body {
   height: auto;
   border: 2px solid #3a1a5e;
   border-radius: 4px;
-  box-shadow:
-    0 0 20px rgba(120, 40, 200, 0.4),
-    0 0 60px rgba(80, 20, 140, 0.2);
+  animation: border-pulse 3s ease-in-out infinite;
 }
 
 @media (max-height: 620px) {
