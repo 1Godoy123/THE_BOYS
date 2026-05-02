@@ -1,6 +1,8 @@
 # THE_BOYS
 Trabajo grupal para ingresar a la SCECI
 
+![logo the boys](img/logo.jpeg)
+
 The present README aims to detail and explain the process of developing the group work. As such, the project is divided into three fundamental parts: HTML, CSS, and JavaScript. How each part was made and what it is for will be defined below, from the HTML structure, the CSS design, and the JavaScript functionalities.
 
 ## HTML
