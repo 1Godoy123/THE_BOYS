@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title> The Boys - Scesi </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="scesi.png">
 </head>
     <body>
-              <canvas id="gameCanvas" width="400" height="600"></canvas>
-              <script src="index.js" type="module"></script>
+        <div id="gameContainer">
+            <canvas id="gameCanvas" width="400" height="600"></canvas>
+            <div id="startScreen">
+                <h1 id="gameTitle">The Boys</h1>
+                <div id="difficultyGroup">
+                    <button class="diff-btn" data-difficulty="easy">Easy</button>
+                    <button class="diff-btn active" data-difficulty="medium">Medium</button>
+                    <button class="diff-btn" data-difficulty="hard">Hard</button>
+                </div>
+                <button id="startBtn">INICIAR</button>
+                <p id="instructions">Tap or press SPACE to fly</p>
+            </div>
+            <div id="gameOverScreen">
+                <h2 id="gameOverTitle">Game Over</h2>
+                <div id="gameOverScores">
+                    <p id="gameOverScore">Score: 0</p>
+                    <p id="gameOverHigh">High Score: 0</p>
+                </div>
+                <p id="gameOverHint">ESPACIO / Tap para reiniciar</p>
+            </div>
+        </div>
+        <img id="scesiLogo" src="scesi.png" alt="SCESI">
+        <script src="index.js" type="module"></script>
     </body>
 </html>

@@ -1,0 +1,390 @@
+/* ── Design tokens ──────────────────────────────────────────────────────── */
+:root {
+  --font-main: 'Orbitron', sans-serif;
+
+  --bg-base:   #0a0a0f;
+  --bg-purple: #1a0a2e;
+  --bg-blue:   #0d1a2e;
+
+  --border-dim:    #3a1a5e;
+  --border-mid:    #4a1a7e;
+  --border-accent: #9b30ff;
+
+  --clr-accent: #9b30ff;
+  --clr-title:  #c96fff;
+  --clr-light:  #e0aaff;
+  --clr-muted:  #7a4aaa;
+  --clr-dim:    #5a2a7e;
+
+  /* RGB channels used inside rgba() */
+  --glow-vivid-rgb:  210, 110, 255;
+  --glow-bright-rgb: 160,  60, 255;
+  --glow-core-rgb:   155,  48, 255;
+  --glow-mid-rgb:    120,  40, 200;
+  --glow-deep-rgb:    80,  20, 140;
+
+  --overlay-bg: rgba(8, 4, 18, 0.9);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────────────── */
+@keyframes bg-shift {
+  0%   { background-position: 50% 0%,   50% 100%; }
+  33%  { background-position: 30% 20%,  70% 80%;  }
+  66%  { background-position: 70% 30%,  30% 70%;  }
+  100% { background-position: 50% 0%,   50% 100%; }
+}
+
+@keyframes border-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 10px rgba(var(--glow-mid-rgb),   0.3),
+      0 0 30px rgba(var(--glow-deep-rgb),  0.15);
+    border-color: var(--border-dim);
+  }
+  50% {
+    box-shadow:
+      0 0 25px rgba(var(--glow-bright-rgb), 0.8),
+      0 0 70px rgba(var(--glow-mid-rgb),    0.45),
+      0 0 120px rgba(var(--glow-deep-rgb),  0.2);
+    border-color: var(--border-accent);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px);   }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes title-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 10px rgba(var(--glow-bright-rgb), 0.6),
+      0 0 30px rgba(var(--glow-mid-rgb),    0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 25px rgba(var(--glow-vivid-rgb),  1),
+      0 0 60px rgba(var(--glow-bright-rgb), 0.65),
+      0 0 110px rgba(var(--glow-mid-rgb),   0.35);
+  }
+}
+
+@keyframes game-over-enter {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+@keyframes score-pop {
+  0%   { transform: scale(0.7); opacity: 0; }
+  60%  { transform: scale(1.1); }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+@keyframes stars-drift-a {
+  from { transform: translateY(0px);     }
+  to   { transform: translateY(-1000px); }
+}
+
+@keyframes stars-drift-b {
+  from { transform: translateY(-400px);  }
+  to   { transform: translateY(-1400px); }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1;  }
+}
+
+/* ── Page ───────────────────────────────────────────────────────────────── */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse at 50% 0%,   var(--bg-purple) 0%, var(--bg-base) 60%),
+    radial-gradient(ellipse at 50% 100%, var(--bg-blue)   0%, transparent    60%);
+  background-size: 200% 200%, 200% 200%;
+  background-position: 50% 0%, 50% 100%;
+  font-family: var(--font-main);
+  overflow: hidden;
+  animation: bg-shift 14s ease-in-out infinite;
+}
+
+/* ── Star field (pseudo-element particle layers) ────────────────────────── */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  /* ~75 small white stars, 1 px each */
+  width: 1px;
+  height: 1px;
+  color: rgba(255, 255, 255, 0.7);
+  background: currentColor;
+  box-shadow:
+    156px  89px, 412px 234px,  78px 445px, 673px 112px, 891px 367px,
+   1123px  56px,1456px 289px,1734px 178px, 234px 612px, 567px 789px,
+   1045px 523px,1389px 734px,1667px 489px,  89px 978px, 345px 845px,
+    712px1023px,1067px 867px,1423px 956px,1745px1123px, 278px1234px,
+    634px1389px, 978px1178px,1289px1456px,1578px1289px, 123px1567px,
+    489px1712px, 834px1634px,1178px1823px,1523px1578px,1867px1745px,
+    367px 134px, 723px 278px,1034px 167px,1312px 389px,1689px 234px,
+     56px 723px, 489px 567px, 812px 678px,1156px 534px,1489px 689px,
+   1812px 789px, 234px1089px, 578px 934px, 912px1145px,1267px1012px,
+   1601px1234px,1845px 867px, 134px1389px, 456px1512px, 789px1345px,
+   1134px1489px,1467px1623px,1801px1456px, 289px1723px, 612px1845px,
+    956px1712px,1289px1889px,1623px1767px,1912px1923px,  45px 345px,
+    389px 489px, 745px 312px,1089px 423px,1412px 156px,1756px 312px,
+    267px 856px, 601px 978px, 945px 845px,1278px 912px,1612px1067px,
+     78px1256px, 423px1134px, 756px1289px,1101px1178px,1434px1345px;
+  animation:
+    stars-drift-a  90s linear     infinite,
+    star-twinkle    4s ease-in-out infinite;
+}
+
+body::after {
+  /* ~30 larger purple-tinted stars, 2 px each */
+  width: 2px;
+  height: 2px;
+  color: rgba(var(--glow-bright-rgb), 0.85);
+  background: currentColor;
+  box-shadow:
+    245px 167px, 623px 323px,1034px  78px,1412px 234px,1778px 145px,
+    456px 512px, 867px 445px,1289px 578px,1701px 489px, 134px 867px,
+    534px 934px, 978px1012px,1389px 878px,1756px1045px, 312px1234px,
+    723px1167px,1134px1312px,1545px1189px,  89px1545px, 512px1489px,
+    934px1612px,1345px1534px,1756px1678px, 234px1867px, 645px1812px,
+   1056px1934px,1467px1878px,1834px1756px, 378px 712px, 823px1089px;
+  animation:
+    stars-drift-b  60s linear     infinite,
+    star-twinkle    6s ease-in-out infinite;
+}
+
+/* ── Game container ─────────────────────────────────────────────────────── */
+#gameContainer {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  z-index: 1;
+}
+
+#gameCanvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 2px solid var(--border-dim);
+  border-radius: 4px;
+  animation: border-pulse 3s ease-in-out infinite;
+}
+
+/* ── Shared overlay base ────────────────────────────────────────────────── */
+#startScreen,
+#gameOverScreen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(3px);
+  border-radius: 2px;
+}
+
+#gameOverScreen {
+  display: none;
+  animation: game-over-enter 0.4s ease-out forwards;
+}
+
+/* ── Start screen ───────────────────────────────────────────────────────── */
+#gameTitle {
+  font-size: clamp(1.8rem, 10vw, 2.8rem);
+  font-weight: 900;
+  color: var(--clr-title);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: float 3.2s ease-in-out infinite, title-glow 3.2s ease-in-out infinite;
+}
+
+#difficultyGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.diff-btn {
+  font-family: var(--font-main);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 8px 20px;
+  border: 2px solid var(--border-mid);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--clr-muted);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.diff-btn:hover {
+  border-color: var(--border-accent);
+  color: var(--clr-title);
+  box-shadow: 0 0 12px rgba(var(--glow-core-rgb), 0.5);
+}
+
+.diff-btn.active {
+  border-color: var(--border-accent);
+  background: rgba(var(--glow-core-rgb), 0.2);
+  color: var(--clr-light);
+  box-shadow: 0 0 18px rgba(var(--glow-core-rgb), 0.65);
+}
+
+#startBtn {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 14px 52px;
+  border: 2px solid var(--border-accent);
+  border-radius: 4px;
+  background: rgba(var(--glow-core-rgb), 0.12);
+  color: var(--clr-light);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.1s;
+}
+
+#startBtn:hover {
+  background: rgba(var(--glow-core-rgb), 0.3);
+  box-shadow:
+    0 0 24px rgba(var(--glow-core-rgb), 0.7),
+    0 0 60px rgba(var(--glow-mid-rgb),  0.3);
+  color: #fff;
+}
+
+#startBtn:active {
+  transform: scale(0.96);
+}
+
+#instructions {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--clr-dim);
+  text-transform: uppercase;
+}
+
+/* ── Game over screen ───────────────────────────────────────────────────── */
+#gameOverTitle {
+  font-size: clamp(1.8rem, 10vw, 2.6rem);
+  font-weight: 900;
+  color: var(--clr-title);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: title-glow 2.5s ease-in-out infinite;
+}
+
+#gameOverScores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: score-pop 0.5s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+#gameOverScore {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--clr-light);
+  letter-spacing: 0.1em;
+}
+
+#gameOverHigh {
+  font-size: 0.8rem;
+  color: var(--clr-muted);
+  letter-spacing: 0.1em;
+}
+
+#gameOverHint {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--clr-dim);
+  text-transform: uppercase;
+}
+
+/* ── SCESI logo ─────────────────────────────────────────────────────────── */
+#scesiLogo {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Responsive: short screens ──────────────────────────────────────────── */
+@media (max-height: 620px) {
+  #gameCanvas {
+    max-height: 95vh;
+    width: auto;
+  }
+}
+
+/* ── Responsive: mobile under 480px ────────────────────────────────────── */
+@media (max-width: 480px) {
+  #startScreen,
+  #gameOverScreen {
+    gap: 20px;
+  }
+
+  #gameTitle,
+  #gameOverTitle {
+    font-size: 1.6rem;
+    letter-spacing: 0.08em;
+  }
+
+  #difficultyGroup {
+    gap: 6px;
+  }
+
+  .diff-btn {
+    font-size: 0.6rem;
+    padding: 6px 12px;
+  }
+
+  #startBtn {
+    font-size: 0.85rem;
+    padding: 11px 32px;
+  }
+
+  #gameOverScore {
+    font-size: 1.1rem;
+  }
+
+  #gameOverHigh {
+    font-size: 0.72rem;
+  }
+
+  #instructions,
+  #gameOverHint {
+    font-size: 0.58rem;
+  }
+
+  #scesiLogo {
+    width: 160px;
+  }
+}
