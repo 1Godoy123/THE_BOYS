@@ -173,6 +173,16 @@ body {
   text-transform: uppercase;
 }
 
+#scesiLogo {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
 @media (max-height: 620px) {
   #gameCanvas {
     max-height: 95vh;
