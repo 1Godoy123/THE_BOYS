@@ -1,39 +1,54 @@
 # THE_BOYS
 Trabajo grupal para ingresar a la SCECI
-El presente README tiene la finalidad de detallar y explicar el proceso de elaboración del trabajo grupal. Comom tal, el proyecto se divide en tres partes fundamentales: HTML, CSS y JavaScript.
-El cómo se realizó cada parte y para qué sirve sera definido a continuación, desde la estructura en HTML, el diseño en CSS y las funcionalidades en JavaScript. 
-## HTML
-HTML se usó principalmente en la creación de la estructura y despliegue de la página web. El contenido ha sido dividido en tres partes: Encabezado principal, sección de puntaje (score), botón de reinicio e instrucciones de juego.
-### Encabezado Principal
-Para el encabezado principal se usó la etiqueta "h1". Consiste en un sencillo texto que se muestra al inicio del programa.
-### Sección de Puntaje
-El score muestra los puntos que va acumulando el usuario en una partida. Se usaron las etiquetas "div, span" principalmente para denotar la sección y para el posterior diseño en CSS.
-### Botón de Reinicio
-El botón de reinicio ha sido implementado para que el usuario pueda volver a jugar o reiniciar una partida. Se usó la etiquta "button" y se le agregó un id para el diseño y programación.
-### Instrucciones de juego
-Es un apartado sencillo, pues se trata de un pequeño parrafo que explica y da a conocer pequeñas instrucciones. Se usaron las etiquetas     "p, div".
-## JAVASCRIPT
-se añadio las fisicas del pajaro  y como se usara y sus propiedades que tendra como la gravedad
-### Entorno de la app
-Para esta parte, donde estamos definiendo las constantes del entorno, las variables de estados y la logica de generacion de obstaculos
-### Estetica del personaje
-se esta definiendo la estetica y la animacion que tendra el personaje 
-### Estetica del entorno
-En este bloque, donde defines el renderisado visual de los obstaculos(tuberias) con sus detalles y texxturas
-### Interfas usuario
-Esta funcion esta encargada de la interfas de usuario (UI)
-### Ciclo de Juego
-Se implementó la función "gameLoop" que actúa como el corazón del programa. Esta se encarga de limpiar el lienzo y redibujar cada elemento en cada cuadro para crear la ilusión de movimiento fluido.
-### Física del Personaje
-En este apartado se detalla cómo el ave reacciona a una gravedad simulada. Se programó para que caiga constantemente a menos que el usuario interactúe, logrando un movimiento parabólico realista.
-### Generación de Tuberías
-Se definió una lógica para que las tuberías aparezcan de forma infinita y con alturas variables. Esto asegura que cada partida sea diferente y que el reto sea constante para el jugador.
-### Almacenamiento de Puntaje
-Se integró el uso de la memoria del navegador para guardar el puntaje máximo. De esta forma, el usuario puede competir contra su propio récord incluso si cierra la página.
-### Interacción y Estados
-Se explica el uso de la tecla espacio para controlar las acciones del juego. Además, se gestionan los estados de "jugando" y "terminado" para permitir un reinicio instantáneo tras perder.
-## CSS
 
+The present README aims to detail and explain the process of developing the group work. As such, the project is divided into three fundamental parts: HTML, CSS, and JavaScript. How each part was made and what it is for will be defined below, from the HTML structure, the CSS design, and the JavaScript functionalities.
+
+## HTML
+HTML was used mainly in the creation of the structure and deployment of the web page. The content has been divided into three parts: Main header, score section, reset button, and game instructions.
+
+### Main Header
+For the main header, the "h1" tag was used. It consists of a simple text that is displayed at the beginning of the program.
+
+### Score Section
+The score shows the points that the user accumulates in a game. The "div, span" tags were used mainly to denote the section and for subsequent CSS design.
+
+### Reset Button
+The reset button has been implemented so that the user can play again or restart a game. The "button" tag was used and an id was added for design and programming.
+
+### Game Instructions
+It is a simple section, as it is a small paragraph that explains and gives small instructions. The "p, div" tags were used.
+
+## JAVASCRIPT
+Bird physics were added and how it will be used and its properties such as gravity.
+
+### App Environment
+For this part, where we are defining the environment constants, the state variables, and the logic of obstacle generation.
+
+### Character Aesthetics
+The aesthetics and animation that the character will have are being defined.
+
+### Environment Aesthetics
+In this block, where you define the visual rendering of the obstacles (pipes) with their details and textures.
+
+### User Interface
+This function is in charge of the user interface (UI).
+
+### Game Cycle
+The "gameLoop" function was implemented, which acts as the heart of the program. This is responsible for clearing the canvas and redrawing each element in each frame to create the illusion of fluid movement.
+
+### Character Physics
+In this section, it is detailed how the bird reacts to a simulated gravity. It was programmed to fall constantly unless the user interacts, achieving a realistic parabolic movement.
+
+### Pipe Generation
+A logic was defined so that the pipes appear infinitely and with variable heights. This ensures that each game is different and that the challenge is constant for the player.
+
+### Score Storage
+The use of the browser's memory was integrated to save the maximum score. In this way, the user can compete against their own record even if they close the page.
+
+### Interaction and States
+The use of the space key to control game actions is explained. In addition, the "playing" and "finished" states are managed to allow an instant restart after losing.
+
+## CSS
 The CSS handled the visual design and aesthetic experience of the game, covering everything from the base structure to animations and responsiveness.
 
 ### Global Styles
