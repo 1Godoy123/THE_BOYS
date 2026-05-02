@@ -1,0 +1,36 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0a0a0f;
+  background-image:
+    radial-gradient(ellipse at top, #1a0a2e 0%, #0a0a0f 60%),
+    radial-gradient(ellipse at bottom, #0d1a2e 0%, transparent 60%);
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+}
+
+#gameCanvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #3a1a5e;
+  border-radius: 4px;
+  box-shadow:
+    0 0 20px rgba(120, 40, 200, 0.4),
+    0 0 60px rgba(80, 20, 140, 0.2);
+}
+
+@media (max-height: 620px) {
+  #gameCanvas {
+    max-height: 95vh;
+    width: auto;
+  }
+}
