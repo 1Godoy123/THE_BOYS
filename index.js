@@ -45,6 +45,7 @@ const gameOverScore  = document.getElementById('gameOverScore');
 const gameOverHigh   = document.getElementById('gameOverHigh');
 const diffButtons    = document.querySelectorAll('.diff-btn');
 const startBtn       = document.getElementById('startBtn');
+const scesiLogo      = document.getElementById('scesiLogo');
 
 diffButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -67,6 +68,7 @@ function startGame() {
     gameStarted = true;
     startScreen.style.display    = 'none';
     gameOverScreen.style.display = 'none';
+    scesiLogo.style.display      = 'none';
 
     if (animFrameId) cancelAnimationFrame(animFrameId);
     gameLoop();
@@ -87,6 +89,7 @@ function showGameOver() {
     gameOverScore.textContent = `Score: ${score}`;
     gameOverHigh.textContent  = `High Score: ${highScore}`;
     gameOverScreen.style.display = 'flex';
+    scesiLogo.style.display      = '';
     /* re-trigger enter animation */
     gameOverScreen.style.animation = 'none';
     gameOverScreen.offsetHeight;
@@ -95,6 +98,7 @@ function showGameOver() {
 
 function restartAfterDeath() {
     gameOverScreen.style.display = 'none';
+    scesiLogo.style.display      = 'none';
     resetState();
     if (animFrameId) cancelAnimationFrame(animFrameId);
     gameLoop();
