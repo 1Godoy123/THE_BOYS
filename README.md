@@ -32,3 +32,33 @@ Se definió una lógica para que las tuberías aparezcan de forma infinita y con
 Se integró el uso de la memoria del navegador para guardar el puntaje máximo. De esta forma, el usuario puede competir contra su propio récord incluso si cierra la página.
 ### Interacción y Estados
 Se explica el uso de la tecla espacio para controlar las acciones del juego. Además, se gestionan los estados de "jugando" y "terminado" para permitir un reinicio instantáneo tras perder.
+## CSS
+
+The CSS handled the visual design and aesthetic experience of the game, covering everything from the base structure to animations and responsiveness.
+
+### Global Styles
+A general reset was applied with box-sizing, margin and padding set to zero to ensure consistency across browsers. The body uses flexbox to center the canvas on screen with a dark themed background.
+
+### Typography
+The Google Font "Orbitron" was integrated to give a futuristic and technological aesthetic in line with the game's theme.
+
+### Canvas and Effects
+The canvas was styled with purple borders and glow shadow effects using box-shadow, along with a pulse animation that makes the border glow continuously.
+
+### Start Screen
+An overlay was designed with the game title, difficulty buttons (Easy, Medium, Hard), a start button and instruction text for the player. It also supports both keyboard and touch input.
+
+### Game Over Screen
+The game over screen was styled with animations and glow effects that maintain visual consistency with the dark purple theme.
+
+### SCESI Logo
+The SCESI logo was added and is only visible on the start screen and game over screen, not during gameplay.
+
+### Particle Animation
+A star background animation was implemented using CSS keyframes to add depth and dynamism to the page.
+
+### CSS Variables
+All colors and fonts were organized using variables in :root to facilitate maintenance and visual consistency throughout the project.
+
+### Responsive Design
+Media queries were added to adapt the game to mobile screens under 480px, ensuring a good experience on any device.
