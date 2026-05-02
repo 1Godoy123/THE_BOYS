@@ -324,6 +324,31 @@ body::after {
   text-transform: uppercase;
 }
 
+#backMenuBtn {
+  font-family: var(--font-main);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 9px 26px;
+  border: 1px solid var(--border-mid);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--clr-muted);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+#backMenuBtn:hover {
+  border-color: var(--border-accent);
+  color: var(--clr-light);
+  box-shadow: 0 0 12px rgba(var(--glow-core-rgb), 0.4);
+}
+
+#backMenuBtn:active {
+  transform: scale(0.96);
+}
+
 /* ── SCESI logo ─────────────────────────────────────────────────────────── */
 #scesiLogo {
   position: fixed;
@@ -382,6 +407,11 @@ body::after {
   #instructions,
   #gameOverHint {
     font-size: 0.58rem;
+  }
+
+  #backMenuBtn {
+    font-size: 0.6rem;
+    padding: 7px 20px;
   }
 
   #scesiLogo {

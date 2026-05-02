@@ -45,6 +45,7 @@ const gameOverScore  = document.getElementById('gameOverScore');
 const gameOverHigh   = document.getElementById('gameOverHigh');
 const diffButtons    = document.querySelectorAll('.diff-btn');
 const startBtn       = document.getElementById('startBtn');
+const backMenuBtn    = document.getElementById('backMenuBtn');
 const scesiLogo      = document.getElementById('scesiLogo');
 
 diffButtons.forEach(btn => {
@@ -56,6 +57,7 @@ diffButtons.forEach(btn => {
 });
 
 startBtn.addEventListener('click', startGame);
+backMenuBtn.addEventListener('click', backToMenu);
 
 // ── Game lifecycle ─────────────────────────────────────────────────────────
 function startGame() {
@@ -102,6 +104,15 @@ function restartAfterDeath() {
     resetState();
     if (animFrameId) cancelAnimationFrame(animFrameId);
     gameLoop();
+}
+
+function backToMenu() {
+    if (animFrameId) cancelAnimationFrame(animFrameId);
+    gameOverScreen.style.display = 'none';
+    scesiLogo.style.display      = '';
+    startScreen.style.display    = 'flex';
+    gameStarted = false;
+    resetState();
 }
 
 // ── Pipe spawning ──────────────────────────────────────────────────────────
@@ -202,10 +213,21 @@ function drawPipes() {
 
 // ── Draw: HUD ──────────────────────────────────────────────────────────────
 function drawScore() {
-    ctx.fillStyle = 'black';
-    ctx.font = '24px Arial';
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,0.7)';
+    ctx.shadowBlur = 4;
+    ctx.shadowOffsetX = 1;
+    ctx.shadowOffsetY = 1;
+
+    ctx.fillStyle = 'white';
+    ctx.font = 'bold 22px Arial';
     ctx.fillText(`Score: ${score}`, 10, 30);
-    ctx.fillText(`High Score: ${highScore}`, 10, 60);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.75)';
+    ctx.font = '16px Arial';
+    ctx.fillText(`Best: ${highScore}`, 10, 54);
+
+    ctx.restore();
 }
 
 // ── Collision ──────────────────────────────────────────────────────────────
